@@ -1,0 +1,13 @@
+#Level 1
+#Write a function that takes in a non-empty string and that returns a boolean representing whether the
+#string is a palindrome.
+
+
+def palin_drome(txt):
+    
+    if len(txt) != 0: #This will check if the given is empty or non-empty string
+        txt = txt.replace(' ', '') #In case there are spaces on the given string, this will replace the space/s ' ' to with no space ''
+        return txt == txt[::-1] #This will reverse the txt
+
+    else:
+        return "Input is empty string, please input non-empty string"
