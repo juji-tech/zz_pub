@@ -1,4 +1,4 @@
-def minCut2(txt):
+def mCut(txt):
     
         pal_chker=[[False for i in range(len(txt))] for j in range(len(txt))] #Create matrix for the given string
         
