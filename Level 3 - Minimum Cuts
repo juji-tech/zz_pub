@@ -1,0 +1,23 @@
+def minCut2(txt):
+    
+        pal_chker=[[False for i in range(len(txt))] for j in range(len(txt))] #Create matrix for the given string
+        
+        #Determine the palindrome on the matrix
+        for i in range(len(txt)):
+            for j in range(i+1):
+                if txt[i]==txt[j] and (i-j<2 or pal_chker[j+1][i-1]):
+                    pal_chker[j][i]=True;
+                    
+        cut=[0 for i in range(len(txt))] #Will create a list consist of 0s based on the given string
+
+        #Loop that determines the minimum cut
+        for i in range(1,len(txt)):
+            cut[i]=min(i,cut[i-1]+1)
+            for j in range(i):
+                if pal_chker[j][i]: #If palindrome, returns True
+                    if j==0: 
+                        cut[i]=0; #Current index stays as 0
+                        break
+                    cut[i]=min(cut[i], cut[j-1]+1) #Determines the cuts
+            
+        return cut[-1] #The last indext is the minimum cut of the given string
