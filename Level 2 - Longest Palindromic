@@ -4,7 +4,8 @@ def lngest_palindromic(txt):
     
     sub_l = 1 #The character itself will consider a palindrome
     
-    st = []
+    st = [] #For the list of palindrome determined from the loop below
+    
     #Loop the lenght of the given to identify the the longest palindrome and to check if palindrome
     for a in range(l_txt): #'a' will act as a starting character
         for b in range(a, l_txt): #'b' will act as an ending character 
@@ -14,18 +15,20 @@ def lngest_palindromic(txt):
                 continue
             else:
                 st.append(txt[a:b+1])
+                
     mx_ln = -1 # initial the maximum length to loop the string inside the set  
-    st_pal = []
+    st_pal = [] # For the list of palindrome that will be checked again on the loop below
     for j in range(len(st)-1):
         if st[j] == st[j][::-1]: #to check if the current string is a palindrome
                st_pal.append(st[j])
-                
+   
+    #Below loop will determine the longest palindrome on the list st_pal
     for ep in st_pal:
         if len(ep) > mx_ln:
             mx_ln = len(ep)
             lngst_pal = ep
     
-    print(lngst_pal)
+    print(lngst_pal) #This will print the longest palindrome on the given string
                 
                 
                     
